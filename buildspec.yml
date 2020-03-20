@@ -17,6 +17,7 @@ phases:
       - apt-get install software-properties-common
       - add-apt-repository ppa:deadsnakes/ppa
       - apt-get -y install python3.5 jq python3-pip python3-dev && pip3 install --upgrade awscli
+      - ln -sf /usr/bin/python3 /usr/local/bin/python3.5
   pre_build:
       commands:
         - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
